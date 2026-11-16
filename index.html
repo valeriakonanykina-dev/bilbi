@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билби — открытка из пустыни</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="day">
+
+    <!-- Переключатель день/ночь -->
+    <button class="theme-toggle" id="themeToggle" title="Сменить время суток">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- 1. Hero с параллаксом -->
+    <header class="hero">
+        <div class="parallax-layer layer-sky"></div>
+        <div class="parallax-layer layer-sun" id="layerSun"></div>
+        <div class="parallax-layer layer-dunes"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="stamp">AUSTRALIA · 2018</p>
+                <h1 class="title">Билби</h1>
+                <p class="subtitle">Маленький герой большой пустыни</p>
+            </div>
+            
+            <!-- 🖼️ КАРТИНКА 1: ПОСТЕР -->
+            <!-- Замени src="images/poster.jpg" на свою картинку -->
+            <img src="https://ru-images-s.kinorium.com/movie/1080/1666024.jpg?1727152643" alt="Постер мультфильма Билби" class="poster">
+        </div>
+        
+        <div class="scroll-hint">↓ Листай вниз</div>
+    </header>
+
+    <!-- 2. Основная мысль с эффектом печатной машинки -->
+    <section class="section idea">
+        <div class="paper-note">
+            <h2 class="section-title">История, которая трогает сердце</h2>
+            <p class="idea-text" id="typewriter"></p>
+            <span class="cursor" id="cursor">|</span>
+        </div>
+    </section>
+
+    <!-- 3. Персонажи с переворотом карточек -->
+    <section class="section characters">
+        <h2 class="section-title">Герои пустыни</h2>
+        <div class="characters-grid">
+            
+            <!-- 🖼️ КАРТИНКА 2: БИЛБИ -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://www.kino-teatr.ru/movie/kadr/194512/1823083.jpg" alt="Билби" class="character-img">
+                        <h3>Билби</h3>
+                        <p class="flip-hint">наведи →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Маленький пугливый заяц с огромными ушами, который живёт один в суровой австралийской пустыне.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🖼️ КАРТИНКА 3: ПТЕНЕЦ -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://www.kino-teatr.ru/movie/kadr/194512/1823089.jpg" alt="Птенец" class="character-img">
+                        <h3>Птенец</h3>
+                        <p class="flip-hint">наведи →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Крошечная птичка, выпавшая из гнезда. Она беззащитна и нуждается в надёжном друге.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Интерактив: мини-игра -->
+    <section class="section interactive">
+        <h2 class="section-title">Помоги Билби!</h2>
+        
+        <div class="game-container">
+            <div class="game-header">
+                <p class="game-title">🪶 Лови падающие перья!</p>
+                <p class="game-score">Собрано: <span id="gameScore">0</span> / 10</p>
+            </div>
+            <div class="game-area" id="gameArea">
+                <div class="game-start" id="gameStart">
+                    <p>Кликай по перьям, пока они не упали!</p>
+                    <button class="btn-start" id="startGame">Начать игру</button>
+                </div>
+            </div>
+            <div class="game-result" id="gameResult" style="display:none;">
+                <p id="resultText"></p>
+                <button class="btn-start" id="restartGame">Играть снова</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Кадры в карусели -->
+    <section class="section frames">
+        <h2 class="section-title">Кадры из мультфильма</h2>
+        <div class="carousel">
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <div class="carousel-track" id="carouselTrack">
+                
+                <!-- 🖼️ КАРТИНКИ 6-11: КАДРЫ ИЗ МУЛЬТФИЛЬМА -->
+                <div class="carousel-slide" style="background-image: url('https://iv.okcdn.ru/videoPreview?id=8693667138261&type=32&idx=13&tkn=6GprSpiad4Xc7K9_kMX8APMo6bQ');"></div>
+                <div class="carousel-slide" style="background-image: url('https://i.ytimg.com/vi/tRTUwxWS7N8/maxresdefault.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images-s.kinorium.com/movie/shot/1666024/w1500_36915028.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('https://media.rds.it/web/wp-content/uploads/2018/12/Bilby-dreamworks-1200x630.png');"></div>
+
+                
+            </div>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <footer class="footer">
+        <p>🏜️ Открытка из австралийской пустыни · © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
