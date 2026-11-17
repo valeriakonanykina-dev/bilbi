@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билби — открытка из пустыни</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="day">
+
+    <!-- Переключатель день/ночь -->
+    <button class="theme-toggle" id="themeToggle" title="Сменить время суток">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- 1. Hero -->
+    <header class="hero">
+        <div class="parallax-layer layer-sky"></div>
+        <div class="parallax-layer layer-sun" id="layerSun"></div>
+        <div class="parallax-layer layer-dunes"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="stamp">AUSTRALIA · 2018</p>
+                <h1 class="title">Билби</h1>
+                <p class="subtitle">Маленький герой большой пустыни</p>
+                
+                <!-- 🎬 КНОПКА "СМОТРЕТЬ МУЛЬТФИЛЬМ" -->
+                <a href="https://yandex.ru/video/preview/4902130313692578837?utm_source=copy_link&utm_medium=social&utm_campaign=share" target="_blank" class="watch-btn">
+                    <span class="watch-icon">▶</span>
+                    <span>Смотреть мультик</span>
+                </a>
+            </div>
+            
+            <!-- 🖼️ ПОСТЕР -->
+            <img src="чубра.webp" alt="Постер мультфильма Билби" class="poster"
+                 onerror="this.src='https://placehold.co/400x600/c8553d/ffffff?text=Билби'">
+        </div>
+        
+        <div class="scroll-hint">↓ Листай вниз</div>
+    </header>
+
+    <!-- 2. Основная мысль -->
+    <section class="section idea">
+        <div class="paper-note">
+            <h2 class="section-title">История, которая трогает сердце</h2>
+            <p class="idea-text" id="typewriter"></p>
+            <span class="cursor" id="cursor">|</span>
+        </div>
+    </section>
+
+    <!-- 3. Персонажи -->
+    <section class="section characters">
+        <h2 class="section-title">Герои пустыни</h2>
+        <div class="characters-grid">
+            
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="билби.webp" alt="Билби" class="character-img"
+                             onerror="this.src='https://placehold.co/300x300/e8c39e/3d2817?text=🐰'">
+                        <h3>Билби</h3>
+                        <p class="flip-hint">наведи →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Маленький пугливый заяц с огромными ушами, который живёт один в суровой австралийской пустыне.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="птичка.jpg" alt="Птенец" class="character-img"
+                             onerror="this.src='https://placehold.co/300x300/e8c39e/3d2817?text=🐣'">
+                        <h3>Птенец</h3>
+                        <p class="flip-hint">наведи →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Крошечная птичка, выпавшая из гнезда. Она беззащитна и нуждается в надёжном друге.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Интерактив: мини-игра -->
+    <section class="section interactive">
+        <h2 class="section-title">Помоги Билби!</h2>
+        
+        <div class="game-container">
+            <div class="game-header">
+                <p class="game-title">🪶 Лови падающие перья!</p>
+                <p class="game-score">Собрано: <span id="gameScore">0</span> / 10</p>
+            </div>
+            <div class="game-area" id="gameArea">
+                <div class="game-start" id="gameStart">
+                    <p>Кликай по перьям, пока они не упали!</p>
+                    <button class="btn-start" id="startGame">Начать игру</button>
+                </div>
+            </div>
+            <div class="game-result" id="gameResult" style="display:none;">
+                <p id="resultText"></p>
+                <button class="btn-start" id="restartGame">Играть снова</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🐰 5. НОВИНКА: ВИРТУАЛЬНЫЙ ПИТОМЕЦ БИЛБИ -->
+    <section class="section pet">
+        <h2 class="section-title">Позаботься о Билби</h2>
+        <p class="pet-subtitle">Покорми, погладь и поиграй с маленьким героем пустыни!</p>
+        
+        <div class="pet-container">
+            <div class="pet-status">
+                <div class="status-bar">
+                    <span class="status-label">Счастье</span>
+                    <div class="bar"><div class="bar-fill" id="happinessBar"></div></div>
+                    <span class="status-value" id="happinessValue">50%</span>
+                </div>
+                <div class="status-bar">
+                    <span class="status-label">Сытость</span>
+                    <div class="bar"><div class="bar-fill food" id="foodBar"></div></div>
+                    <span class="status-value" id="foodValue">50%</span>
+                </div>
+            </div>
+            
+            <div class="pet-stage">
+                <div class="pet-bilby" id="petBilby">🐰</div>
+                <div class="pet-reaction" id="petReaction"></div>
+                <p class="pet-mood" id="petMood">Билби ждёт твоей заботы...</p>
+            </div>
+            
+            <div class="pet-actions">
+                <button class="pet-btn" data-action="feed">
+                    <span class="pet-btn-icon">🥕</span>
+                    <span>Покормить</span>
+                </button>
+                <button class="pet-btn" data-action="pet">
+                    <span class="pet-btn-icon">✋</span>
+                    <span>Погладить</span>
+                </button>
+                <button class="pet-btn" data-action="play">
+                    <span class="pet-btn-icon">🎾</span>
+                    <span>Поиграть</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Карусель -->
+    <section class="section frames">
+        <h2 class="section-title">Кадры из мультфильма</h2>
+        <div class="carousel">
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide" style="background-image: url('https://i.pinimg.com/originals/e2/f7/72/e2f772872d5aa430b7ac5a1f61523e89.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('https://avatars.mds.yandex.net/i?id=f65c29eef38d33108b6270f8e06e1f9c_l-4496278-images-thumbs&n=13');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images-s.kinorium.com/movie/shot/1666024/w1500_36915028.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('https://www.film.ru/sites/default/files/styles/thumb_1024x450/public/movies/posters/_imported/r36XKxRSy2XQTBPfiu4ACXsINvo.jpg');"></div>
+            </div>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <footer class="footer">
+        <p>🏜️ Открытка из австралийской пустыни · © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
